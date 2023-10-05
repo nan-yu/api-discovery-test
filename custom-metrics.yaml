@@ -240,21 +240,13 @@ metadata:
   name: custom-metrics-stackdriver-adapter
   namespace: custom-metrics
 spec:
-  clusterIP: 10.28.125.213
-  clusterIPs:
-  - 10.28.125.213
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
   ports:
   - port: 443
     protocol: TCP
     targetPort: 443
   selector:
-    k8s-app: custom-metrics-stackdriver-adapter
     run: custom-metrics-stackdriver-adapter
-  sessionAffinity: None
+    k8s-app: custom-metrics-stackdriver-adapter
   type: ClusterIP
 ---
 apiVersion: rbac.authorization.k8s.io/v1
